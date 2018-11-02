@@ -1,0 +1,1 @@
+Blog app for personal website. This is a project where I will start with a basic Mongo/Node/EJS application. I may create an Angular branch clone for the practice later.
