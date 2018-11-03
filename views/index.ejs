@@ -1,0 +1,15 @@
+<% include template/header.ejs %>
+<h1>ITS WORKING</h1>
+<br>
+<% blogs.forEach((blog) => {%>
+    <div> <h2><%=blog.title%></h2> <br> <img width="10%" height="10%" src="<%= blog.image %>"> <br> <p><%=blog.body%></p>
+<%}) %>
+
+
+<% include template/header.ejs %>
+
+<script>
+forEach(blogs){
+    <div> <h2>blogs.title</h2> <br> <img src= "blogs.image"> <br> <p>blogs.body</p>
+}
+</script>
