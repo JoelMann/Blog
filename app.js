@@ -1,7 +1,8 @@
 const express = require('express'), 
     cors = require('cors'), 
     bodyParser = require('body-parser'), 
-    mongoose = require('mongoose');
+    mongoose = require('mongoose'),
+    path = require('path');
 
 let app = express();
 app.use(bodyParser.urlencoded({
@@ -34,7 +35,7 @@ let Blog = mongoose.model("Blog", blogSchema);
 
 app.get('/', (req, res) => res.redirect('/blogs'));
 
-app.get('/blogs', (req, res) =>{
+app.get('/blogs', (req, res) => {
     Blog.find({}, (err, blogs) => {
         if(err){
             console.log(err);
@@ -44,9 +45,27 @@ app.get('/blogs', (req, res) =>{
             res.render("index", {blogs: blogs});
         }
     });
-})
-
-
-app.listen(3000, () => {
-    console.log("App is listening...")
 });
+
+//New
+app.get('/blogs/new', (req, res) => res.render('new'));
+
+//Create
+app.post('/blogs', (req, res) => Blog.create(req.body.blog, (err, newPost) =>{
+    if(err) {console.log(err); res.render('new')}
+    else {res.redirect('/blogs')}
+}));
+
+//Show
+app.get('/blogs/:id', (req, res) => Blog.findById(req.params.id, (err, foundBlog) => {
+    if(err) {
+        res.redirect('/blogs');
+    }
+    else {
+        res.render('show', {blog: foundBlog})
+    }
+}
+ ));
+
+app.get('*', (req, res) => res.render('404'));
+app.listen(3000, () => console.log("App is listening..."));

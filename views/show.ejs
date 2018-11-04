@@ -1,0 +1,23 @@
+<% include template/header.ejs %>
+
+<div class="ui main text container segment">
+    <div class="ui header huge segment">
+            <%= blog.title %>
+    </div>   
+    <div class="ui top attached">
+        <div class="item">
+            <img class="ui centered rounded image" src="<%=blog.image%>">
+        </div>
+    
+         <div class="description">
+            <label><h3>Post</h3></label>
+        <p><%=blog.body%></p>
+        </div>
+    </div>
+</div>
+<div style="text-align: center">
+        <a href="" class="ui button orange">Fix your shit</a>
+        <a href="" class="ui button red">Kill it with fire</a>
+</div>
+
+<% include template/footer.ejs %>

@@ -2,7 +2,16 @@
 <h1>ITS WORKING</h1>
 <br>
 <% blogs.forEach((blog) => {%>
-    <div> <h2><%=blog.title%></h2> <br> <img width="10%" height="10%" src="<%= blog.image %>"> <br> <p><%=blog.body%></p>
+    <div class="ui container blogpost"> 
+        <div class="ui title blogpost">
+            <h2><%=blog.title%></h2> 
+        </div>
+        <img src="<%= blog.image %>">
+        <div class="description">
+            <p><%=blog.body%></p>
+        </div>
+        <a class="ui button blue inverted" href="/blogs/<%= blog._id %>">Read more!</a>
+    </div>
 <%}) %>
 
 

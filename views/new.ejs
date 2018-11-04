@@ -1,0 +1,27 @@
+<% include template/header.ejs %>
+
+<div class="ui main text container segment">
+    <div class="ui header huge">
+            New Blog Post
+    </div>           
+</div>
+<div class="ui container">
+    <form class="ui form" method="POST" action="/blogs">
+        <div class="field">
+          <label>First Name</label>
+          <input type="text" name="blog[title]" placeholder="Entitled with great eloquence.">
+        </div>
+        <div class="field">
+            <label>Image</label>
+            <input type="text" name="blog[image]" placeholder="Show us what you got!">
+          </div>
+        <div class="field">
+          <label>Post</label>
+          <textarea name="blog[body]" placeholder="What's on your mind?"></textarea>
+        </div>
+        <button class="ui button basic green big" type="submit">Submit</button>
+      </form>
+</div>
+
+<% include template/footer.ejs %>
+
