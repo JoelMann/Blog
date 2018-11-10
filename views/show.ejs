@@ -16,8 +16,10 @@
     </div>
 </div>
 <div style="text-align: center">
-        <a href="" class="ui button orange">Fix your shit</a>
-        <a href="" class="ui button red">Kill it with fire</a>
+        <a style="margin-bottom: 1em" href="<%=blog._id%>/update" class="ui button orange inverted">Fix your shit</a>
+        <form method="POST" action="/blogs/<%=blog._id%>/?_method=DELETE">
+        <button class="ui button red inverted" action="submit">Kill it with fire</button>
+        </form>
 </div>
 
 <% include template/footer.ejs %>
