@@ -13,6 +13,9 @@ app.use(methodOveride('_method'));
 
 mongoose.connect('mongodb://localhost/blog', {
     useNewUrlParser: true
+}).then(
+    () => {console.log("DB connected"),
+    (err) => {console.log("DB not connected, Error: " + err)}
 });
 
 app.set('view engine', 'ejs');
