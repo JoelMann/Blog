@@ -3,7 +3,10 @@ const express = require('express'),
     bodyParser = require('body-parser'), 
     mongoose = require('mongoose'),
     methodOveride = require('method-override');
-    path = require('path');
+    path = require('path'),
+    Blog = require('./models/blogs.js'),
+    Comments = require('./models/comments.js'),
+    User = require('./models/users.js');
 
 let app = express();
 app.use(bodyParser.urlencoded({
@@ -20,15 +23,6 @@ mongoose.connect('mongodb://localhost/blog', {
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
-
-let blogSchema = new mongoose.Schema({
-    title: String,
-    image: String,
-    body: String,
-    created: {type: Date, default: Date.now}
-});
-
-let Blog = mongoose.model("Blog", blogSchema);
 
 // Blog.create({
 //     title: "Dylan is a faggot",
