@@ -98,3 +98,5 @@ app.delete('/blogs/:id/', (req, res) => Blog.findByIdAndRemove(req.params.id, (e
 
 app.get('*', (req, res) => res.render('404'));
 app.listen(3000, () => console.log("App is listening..."));
+
+//This is to test the update to a new branch
